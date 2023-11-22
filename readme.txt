@@ -1,6 +1,6 @@
 //README
 
-create .env in root directory and add following variable in it ->
+create .env in root directory and add following variables in it ->
 1. MONGO_URL - add your mongodb connection string
 2. JWT_TOKEN = Json web token secret key 
 3. PORT = backend server port number || Default port is 5000
