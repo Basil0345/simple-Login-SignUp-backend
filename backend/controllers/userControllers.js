@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
         // Check if the user already exists
         const existingUser = await userModel.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ error: "Email Already Exists" });
+            return res.status(400).json({ error: "User already exists" });
         }
 
         //Create a new user
@@ -52,6 +52,7 @@ const loginUser = async (req, res) => {
 
     // Extract user information from the request body
     const { email, password } = req.body;
+    console.log(email, password)
 
     // Basic validation
     if (!email || !password) {
@@ -79,7 +80,7 @@ const loginUser = async (req, res) => {
             message: "Login Success",
             user: {
                 _id: user._id,
-                name: user.name,
+                username: user.username,
                 email: user.email,
                 pic: user.pic,
                 token: generateToken(user._id)
